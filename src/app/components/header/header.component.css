@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0025A8;
+  height: 80px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+}
