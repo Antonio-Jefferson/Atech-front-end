@@ -1,0 +1,23 @@
+<app-main-layout>
+  <app-title [title]="'Cadastro'"></app-title>
+  <div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input id="name" class="form-control" formControlName="name" type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" class="form-control" formControlName="email" type="email">
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input id="telefone" class="form-control" formControlName="telefone" type="text">
+      </div>
+
+      <button type="submit" class="btn">Cadastrar</button>
+    </form>
+  </div>
+</app-main-layout>
