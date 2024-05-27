@@ -1,0 +1,7 @@
+<ul>
+  <app-card *ngFor="let person of people" [person]="person"></app-card>
+</ul>
+
+<ng-template *ngIf="people.length === 0;">
+  <p class="no-users-message">Nenhum usuário adicionado</p>
+</ng-template>

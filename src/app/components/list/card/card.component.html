@@ -1,0 +1,13 @@
+<div class="container-card" *ngIf="person">
+  <div class="info-user">
+    <p>{{ person.id }}</p>
+    <p>{{ person.name }}</p>
+    <p>{{ person.email }}</p>
+  </div>
+  <button class="icon" (click)="deletePerson(person.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+
+
+
