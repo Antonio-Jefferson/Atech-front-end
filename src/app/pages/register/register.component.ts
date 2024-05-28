@@ -4,6 +4,7 @@ import { MainLayoutComponent } from '../../layout/main-layout/main-layout.compon
 import { TitleComponent } from '../../components/title/title.component';
 import { LocalstorageApiService } from '../../services/localstorage-api.service';
 import { Router} from '@angular/router'
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -16,11 +17,11 @@ export class RegisterComponent  implements OnInit {
   formulario: FormGroup;
 
   constructor(private fb: FormBuilder, private localStorageService: LocalstorageApiService,
-    private router: Router) {
+    private router: Router,private natification: NotificationService) {
     this.formulario = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required]
+      phone: ['', [Validators.minLength(11), Validators.maxLength(11)]]
     });
   }
 
@@ -31,13 +32,14 @@ export class RegisterComponent  implements OnInit {
       this.localStorageService.addPerson(this.formulario.value).subscribe(
         () => {
           this.router.navigate(['/']);
+          this.natification.showSuccess('Usuário criado com sucesso')
         },
         error => {
-          alert('Erro ao salvar os dados. Por favor, tente novamente.');
+          this.natification.showError('Ocorreu um erro ao salvar')
         }
       );
     } else {
-      alert('Preencha todos os campos corretamente.');
+      this.natification.showError('Preencha todos os campos corretamente.');
     }
   }
 }

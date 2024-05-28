@@ -7,6 +7,7 @@ import { TitleComponent } from '../../components/title/title.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModeComponent } from '../../components/edit-mode/edit-mode.component';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-user-details',
@@ -19,7 +20,12 @@ export class UserDetailsComponent {
   userId: number | undefined;
   user: Person | undefined;
 
-  constructor(private dialog: MatDialog, private route: ActivatedRoute, private localStorageApiService: LocalstorageApiService) { }
+  constructor(
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
+    private localStorageApiService: LocalstorageApiService,
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -40,7 +46,7 @@ export class UserDetailsComponent {
       if (user) {
         this.user = user;
       } else {
-        console.log('User not found');
+        this.notificationService.showError('Usuário não encontrado')
       }
     });
   }

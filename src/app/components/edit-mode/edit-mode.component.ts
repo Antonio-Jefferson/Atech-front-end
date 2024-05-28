@@ -4,6 +4,7 @@ import { LocalstorageApiService } from '../../services/localstorage-api.service'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Validators } from '@angular/forms';
+import { NotificationService } from '../../services/notification.service';
 
 
 @Component({
@@ -16,12 +17,12 @@ import { Validators } from '@angular/forms';
 export class EditModeComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor( public dialogRef: MatDialogRef<EditModeComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private localStorageService: LocalstorageApiService) {
+  constructor( public dialogRef: MatDialogRef<EditModeComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private localStorageService: LocalstorageApiService, private notificationService: NotificationService) {
     const userData = this.data.user;
     this.formulario = this.fb.group({
       name: [userData.name, Validators.required],
       email: [userData.email, [Validators.required, Validators.email]],
-      phone: [userData.phone, Validators.required]
+      phone: [userData.phone,]
     });
   }
 
@@ -38,14 +39,15 @@ export class EditModeComponent implements OnInit {
       this.localStorageService.updatePerson(id, updatedPerson).subscribe(
         () => {
           this.dialogRef.close(true);
+          this.notificationService.showError('Usuário editado com sucesso')
           window.location.reload();
         },
         error => {
-          alert('Erro ao salvar os dados. Por favor, tente novamente.');
+          this.notificationService.showError('Erro ao salvar os dados. Por favor, tente novamente.')
         }
       );
     } else {
-      alert('Preencha todos os campos corretamente.');
+      this.notificationService.showError('Preencha todos os campos corretamente.')
     }
   }
 }
