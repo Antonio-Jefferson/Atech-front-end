@@ -1,0 +1,14 @@
+<app-main-layout>
+  <app-title [title]="'Detalhes do usuário'"></app-title>
+  <div class="container-details" [@if]="user">
+    <div class="details">
+      <p><strong>ID:</strong> {{ user?.id }}</p>
+      <p><strong>Name:</strong> {{ user?.name }}</p>
+      <p><strong>Email:</strong> {{ user?.email }}</p>
+      <p><strong>Telefone:</strong> {{ user?.phone }}</p>
+    </div>
+    <div class="icon">
+      <mat-icon>create</mat-icon>
+    </div>
+  </div>
+</app-main-layout>
