@@ -23,7 +23,6 @@ export class ListComponent {
   getPeople() {
     this.localStorageService.getPeople().subscribe(
       (data: Person[]) => {
-        console.log(data)
         this.people = data;
       },
       error => {
