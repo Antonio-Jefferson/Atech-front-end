@@ -1,27 +1,35 @@
-# AtechTesteTecnico
+# Atech
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Este é um projeto incrível que foi desenvolvido como parte de uma avaliação técnica para o cargo de Desenvolvedor Frontend.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter o Node.js e o npm instalados em sua máquina antes de começar.
 
-## Code scaffolding
+## Instalação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone este repositório para o seu computador: git clone [github.com/atech-front-end](https://github.com/Antonio-Jefferson/Atech-front-end)
 
-## Build
+1. Navegue até o diretório do projeto: cd atech-teste-tecnico
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Instale as dependências do projeto: npm install
 
-## Running unit tests
+## Executando o Projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Após a instalação das dependências, você pode iniciar o servidor de desenvolvimento local. Execute o seguinte comando:
 
-## Running end-to-end tests
+npm start
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Isso iniciará o servidor de desenvolvimento e abrirá automaticamente o projeto em seu navegador padrão. Se não abrir automaticamente, você pode acessá-lo manualmente em `http://localhost:4200`.
 
-## Further help
+## Testando o Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para executar os testes unitários, você pode usar o seguinte comando:
+
+npm test
+
+Isso executará os testes e exibirá os resultados no terminal.
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
