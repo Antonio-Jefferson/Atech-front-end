@@ -39,7 +39,6 @@ export class EditModeComponent implements OnInit {
       this.localStorageService.updatePerson(id, updatedPerson).subscribe(
         () => {
           this.dialogRef.close(true);
-          this.notificationService.showError('Usuário editado com sucesso')
           window.location.reload();
         },
         error => {
