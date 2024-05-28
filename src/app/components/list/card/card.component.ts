@@ -5,11 +5,12 @@ import { Person } from '../../../model/person.model';
 import { MatDialog } from '@angular/material/dialog';
 import { LocalstorageApiService } from '../../../services/localstorage-api.service';
 import { DeleteModeComponent } from '../../delete-mode/delete-mode.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [MatIconModule,  CommonModule],
+  imports: [MatIconModule,  CommonModule, RouterLink],
   templateUrl: './card.component.html',
   styleUrl: './card.component.sass'
 })

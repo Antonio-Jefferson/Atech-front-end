@@ -18,3 +18,14 @@
 .logo-container img {
   width: 100%;
 }
+
+@media (max-width: 900px) {
+  .footer-toolbar {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .logo-container {
+    margin-bottom: 12px;
+  }
+}

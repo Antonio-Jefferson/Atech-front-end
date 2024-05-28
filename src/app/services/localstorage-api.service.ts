@@ -18,6 +18,7 @@ export class LocalstorageApiService {
 
   private saveDataToStorage(data: Person[]): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+
   }
 
   addPerson(person: Person): Observable<any> {
@@ -30,6 +31,12 @@ export class LocalstorageApiService {
 
   getPeople(): Observable<Person[]> {
     return of(this.getDataFromStorage());
+  }
+
+  getPersonById(id: number): Observable<Person | undefined> {
+    const people = this.getDataFromStorage();
+    const person = people.find(p => p.id === id);
+    return of(person);
   }
 
   updatePerson(id: number, person: Person): Observable<any> {

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MainLayoutComponent } from '../../layout/main-layout/main-layout.component';
 import { TitleComponent } from '../../components/title/title.component';
 import { LocalstorageApiService } from '../../services/localstorage-api.service';
+import { Router} from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -14,11 +15,12 @@ import { LocalstorageApiService } from '../../services/localstorage-api.service'
 export class RegisterComponent  implements OnInit {
   formulario: FormGroup;
 
-  constructor(private fb: FormBuilder, private localStorageService: LocalstorageApiService) {
+  constructor(private fb: FormBuilder, private localStorageService: LocalstorageApiService,
+    private router: Router) {
     this.formulario = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', Validators.required]
+      phone: ['', Validators.required]
     });
   }
 
@@ -28,11 +30,9 @@ export class RegisterComponent  implements OnInit {
     if (this.formulario.valid) {
       this.localStorageService.addPerson(this.formulario.value).subscribe(
         () => {
-          console.log('Cadastro realizado com sucesso!');
-          alert('Cadastro realizado com sucesso!');
+          this.router.navigate(['/']);
         },
         error => {
-          console.error('Erro ao salvar os dados:', error);
           alert('Erro ao salvar os dados. Por favor, tente novamente.');
         }
       );
