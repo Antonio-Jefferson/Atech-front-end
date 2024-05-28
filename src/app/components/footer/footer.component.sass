@@ -1,4 +1,8 @@
 .footer-toolbar
+  position: fixed
+  bottom: 0px
+  z-index: 10
+  left: 0px
   display: flex
   align-items: center
   justify-content: space-between
@@ -8,6 +12,8 @@
   text-align: center
   background-color: #282727
   color: #FFF
+  p
+    font-size: 14px
 
 
 .logo-container
@@ -15,7 +21,9 @@
   height: 40px
   img
     width: 100%
-
+.icons
+  img
+    cursor: pointer
 @media (max-width: 900px)
     .footer-toolbar
       flex-direction: column

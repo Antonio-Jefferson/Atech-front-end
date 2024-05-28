@@ -2,11 +2,25 @@
   display: flex
   justify-content: space-between
   max-width: 580px
-  height: 130px
+  height: auto
   padding: 12px 24px
   border-radius: 10px
   background-color: #D9D9D9
-  margin: auto
-  @media (max-width: 900px)
-    .container-details
-      width: 100%
+  margin: auto 24px
+
+.icon
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 34px
+  height: 34px
+  border-radius: 5px
+  background-color: green
+  color: #FFF
+  cursor: pointer
+.icon:hover
+  background-color: #38bd17
+@media (min-width: 700px)
+  .container-details
+    width: 100%
+    margin: auto

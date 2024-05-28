@@ -10,7 +10,7 @@ export class NotificationService {
   showSuccess(message: string) {
     Toastify({
       text: message,
-      duration: 3000,
+      duration: 1000,
       close: true,
       gravity: "top",
       position: "right",
@@ -26,7 +26,7 @@ export class NotificationService {
   showError(message: string) {
     Toastify({
       text: message,
-      duration: 3000,
+      duration: 1000,
       close: true,
       gravity: "top",
       position: "right",
