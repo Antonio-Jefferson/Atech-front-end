@@ -6,14 +6,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
 import { UserService } from '../../services/user-event.service';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 @Component({
   selector: 'app-edit-mode',
   standalone: true,
-  imports: [TitleComponent, ReactiveFormsModule],
+  imports: [TitleComponent, ReactiveFormsModule, NgxMaskDirective, NgxMaskPipe],
   templateUrl: './edit-mode.component.html',
-  styleUrl: './edit-mode.component.sass'
+  styleUrl: './edit-mode.component.sass',
+  providers: [provideNgxMask()]
 })
 export class EditModeComponent implements OnInit {
   formulario: FormGroup;
