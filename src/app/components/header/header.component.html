@@ -4,8 +4,15 @@
       <img src="assets/images/atech-logo.png" alt="Logo" class="logo">
     </span>
     <span class="example-spacer"></span>
-    <button class="btn" routerLink="/register">
-      Cadastrar
-    </button>
+    <div class="nav-menu">
+      <ul>
+        <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <h1>Home</h1>
+        </li>
+        <li routerLink="/register" routerLinkActive="active">
+          <h1>Cadastrar</h1>
+        </li>
+      </ul>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
