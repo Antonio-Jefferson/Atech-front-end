@@ -3,6 +3,8 @@ import { CardComponent } from './card/card.component';
 import { Person } from '../../model/person.model';
 import { LocalstorageApiService } from '../../services/localstorage-api.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user-event.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -13,11 +15,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ListComponent {
   people: Person[] = [];
+  private userDeletedSubscription!: Subscription;
 
-  constructor(private localStorageService: LocalstorageApiService) {}
+  constructor(private localStorageService: LocalstorageApiService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.getPeople();
+    this.userDeletedSubscription = this.userService.userDeleted$().subscribe(() => {
+      this.getPeople();
+    });
   }
 
   getPeople() {

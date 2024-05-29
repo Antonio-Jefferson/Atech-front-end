@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModeComponent } from '../../components/edit-mode/edit-mode.component';
 import { NotificationService } from '../../services/notification.service';
+import { UserService } from '../../services/user-event.service';
 
 @Component({
   selector: 'app-user-details',
@@ -17,22 +18,32 @@ import { NotificationService } from '../../services/notification.service';
   styleUrl: './user-details.component.sass'
 })
 export class UserDetailsComponent {
-  userId: number | undefined;
+  userId!: number;
   user: Person | undefined;
 
   constructor(
     private dialog: MatDialog,
     private route: ActivatedRoute,
     private localStorageApiService: LocalstorageApiService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
-      this.getUserDetails(this.userId);
+      if (this.userId) {
+        this.getUserDetails(this.userId);
+      }
+    });
+
+    this.userService.userUpdated$().subscribe(() => {
+      if (this.userId) {
+        this.getUserDetails(this.userId);
+      }
     });
   }
+
   openEditMode(): void {
     const dialogRef = this.dialog.open(EditModeComponent, {
       width: '700px',
@@ -46,7 +57,7 @@ export class UserDetailsComponent {
       if (user) {
         this.user = user;
       } else {
-        this.notificationService.showError('Usuário não encontrado')
+        this.notificationService.showError('Usuário não encontrado');
       }
     });
   }

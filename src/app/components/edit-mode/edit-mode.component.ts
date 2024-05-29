@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
+import { UserService } from '../../services/user-event.service';
 
 
 @Component({
@@ -17,7 +18,14 @@ import { NotificationService } from '../../services/notification.service';
 export class EditModeComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor( public dialogRef: MatDialogRef<EditModeComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private localStorageService: LocalstorageApiService, private notificationService: NotificationService) {
+  constructor(
+    public dialogRef: MatDialogRef<EditModeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder,
+    private localStorageService: LocalstorageApiService,
+    private notificationService: NotificationService,
+    private userService: UserService
+) {
     const userData = this.data.user;
     this.formulario = this.fb.group({
       name: [userData.name, Validators.required],
@@ -39,7 +47,7 @@ export class EditModeComponent implements OnInit {
       this.localStorageService.updatePerson(id, updatedPerson).subscribe(
         () => {
           this.dialogRef.close(true);
-          window.location.reload();
+          this.userService.userUpdated$()
         },
         error => {
           this.notificationService.showError('Erro ao salvar os dados. Por favor, tente novamente.')
