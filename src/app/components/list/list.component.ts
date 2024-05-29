@@ -21,9 +21,13 @@ export class ListComponent {
 
   ngOnInit(): void {
     this.getPeople();
-    this.userDeletedSubscription = this.userService.userDeleted$().subscribe(() => {
+    this.userDeletedSubscription = this.userService.userDeleted$.subscribe(() => {
       this.getPeople();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userDeletedSubscription.unsubscribe();
   }
 
   getPeople() {

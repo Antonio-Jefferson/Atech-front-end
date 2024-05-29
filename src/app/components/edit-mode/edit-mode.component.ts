@@ -25,12 +25,12 @@ export class EditModeComponent implements OnInit {
     private localStorageService: LocalstorageApiService,
     private notificationService: NotificationService,
     private userService: UserService
-) {
+  ) {
     const userData = this.data.user;
     this.formulario = this.fb.group({
       name: [userData.name, Validators.required],
       email: [userData.email, [Validators.required, Validators.email]],
-      phone: [userData.phone,]
+      phone: [userData.phone, [Validators.minLength(11), Validators.maxLength(11)]]
     });
   }
 
@@ -47,14 +47,20 @@ export class EditModeComponent implements OnInit {
       this.localStorageService.updatePerson(id, updatedPerson).subscribe(
         () => {
           this.dialogRef.close(true);
-          this.userService.userUpdated$()
+          this.notificationService.showSuccess("Usuário alterado com sucesso");
+          this.userService.emitUserEdited();
         },
         error => {
-          this.notificationService.showError('Erro ao salvar os dados. Por favor, tente novamente.')
+          this.notificationService.showError('Erro ao salvar os dados. Por favor, tente novamente.');
         }
       );
     } else {
-      this.notificationService.showError('Preencha todos os campos corretamente.')
+      const phoneControl = this.formulario.get('phone');
+      if (phoneControl && (phoneControl.errors?.['minlength'] || phoneControl.errors?.['maxlength'])) {
+        this.notificationService.showError('Número inválido, precisa ter exatamente 11 números.');
+      } else {
+        this.notificationService.showError('Preencha todos os campos corretamente.');
+      }
     }
   }
 }

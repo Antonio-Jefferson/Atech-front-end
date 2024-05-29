@@ -15,16 +15,16 @@ export class DeleteModeComponent {
     public dialogRef: MatDialogRef<DeleteModeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private notificationService: NotificationService,
-    private useService: UserService
+    private userService: UserService
   ) {}
 
-    onCancel(): void {
-      this.dialogRef.close(false);
-    }
+  onCancel(): void {
+    this.dialogRef.close(false);
+  }
 
-    onConfirm(): void {
-      this.dialogRef.close(true);
-      this.notificationService.showSuccess('Usuário deletado com sucesso!')
-      this.useService.userDeleted$()
-    }
+  onConfirm(): void {
+    this.dialogRef.close(true);
+    this.notificationService.showSuccess('Usuário deletado com sucesso!');
+    this.userService.emitUserDeleted();
+  }
 }

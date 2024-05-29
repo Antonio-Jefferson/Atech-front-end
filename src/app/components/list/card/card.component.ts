@@ -7,6 +7,7 @@ import { LocalstorageApiService } from '../../../services/localstorage-api.servi
 import { DeleteModeComponent } from '../../delete-mode/delete-mode.component';
 import { RouterLink } from '@angular/router';
 import { NotificationService } from '../../../services/notification.service';
+import { UserService } from '../../../services/user-event.service';
 
 @Component({
   selector: 'app-card',
@@ -17,26 +18,29 @@ import { NotificationService } from '../../../services/notification.service';
 })
 export class CardComponent {
   @Input() person: Person | undefined;
-  constructor(private dialog: MatDialog, private localStorageService: LocalstorageApiService, private notificationService:NotificationService) {}
+  constructor(
+    private dialog: MatDialog,
+    private localStorageService: LocalstorageApiService,
+    private userService: UserService
+  ) {}
 
   openDeleteDialog(id: number): void {
     const dialogRef = this.dialog.open(DeleteModeComponent, {
-      width:'700px',
-      height:'300px',
+      width: '700px',
+      height: '300px',
       data: { id }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.deletePerson(id);
-        this.notificationService.showError('Usuário editado com sucesso')
       }
     });
   }
 
   deletePerson(id: number): void {
     this.localStorageService.deletePerson(id).subscribe(() => {
-      console.log('User deleted successfully');
+      this.userService.emitUserDeleted();
     });
   }
 }

@@ -6,21 +6,21 @@ import { Subject, Observable } from 'rxjs';
 })
 export class UserService {
   private userDeletedSource = new Subject<void>();
-  private userUpdatedSource = new Subject<void>();
+  private userEditedSource = new Subject<void>();
 
-  userDeleted$(): Observable<void> {
+  get userDeleted$(): Observable<void> {
     return this.userDeletedSource.asObservable();
   }
 
-  userUpdated$(): Observable<void> {
-    return this.userUpdatedSource.asObservable();
+  get userEdited$(): Observable<void> {
+    return this.userEditedSource.asObservable();
   }
 
-  deleteUser() {
+  emitUserDeleted() {
     this.userDeletedSource.next();
   }
 
-  updateUser() {
-    this.userUpdatedSource.next();
+  emitUserEdited() {
+    this.userEditedSource.next();
   }
 }

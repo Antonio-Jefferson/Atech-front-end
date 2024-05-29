@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditModeComponent } from '../../components/edit-mode/edit-mode.component';
 import { NotificationService } from '../../services/notification.service';
 import { UserService } from '../../services/user-event.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -20,6 +21,7 @@ import { UserService } from '../../services/user-event.service';
 export class UserDetailsComponent {
   userId!: number;
   user: Person | undefined;
+  private userEditedSubscription!: Subscription;
 
   constructor(
     private dialog: MatDialog,
@@ -37,11 +39,15 @@ export class UserDetailsComponent {
       }
     });
 
-    this.userService.userUpdated$().subscribe(() => {
+    this.userEditedSubscription = this.userService.userEdited$.subscribe(() => {
       if (this.userId) {
         this.getUserDetails(this.userId);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userEditedSubscription.unsubscribe();
   }
 
   openEditMode(): void {
