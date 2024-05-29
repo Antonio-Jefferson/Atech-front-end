@@ -3,6 +3,7 @@
 <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/atech-logo.png" alt="logo">
 
 Este é um projeto incrível que foi desenvolvido como parte de uma avaliação técnica para o cargo de Desenvolvedor Frontend.
+
 - Fimga: [Clique aqui](https://www.figma.com/design/nyq5l1v7w0gPDXaCH76DsY/Untitled?node-id=0-1&t=YiTQwUdOVtDaphEb-1)
 
 ## Requisitos  ✅
@@ -11,7 +12,7 @@ Certifique-se de ter o Node.js e o npm instalados em sua máquina antes de come�
 
 ## Instalação ⚙️
 
-1. Clone este repositório para o seu computador: `git clone` [github.com/atech-front-end](https://github.com/Antonio-Jefferson/Atech-front-end)
+1. Clone este repositório para o seu computador: `git clone` [github.com/atech-front-end](git@github.com:Antonio-Jefferson/Atech-front-end.git)
 
 2. Navegue até o diretório do projeto: `cd Atech-front-end`
 
