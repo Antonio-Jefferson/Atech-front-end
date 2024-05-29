@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { TitleComponent } from '../title/title.component';
 import { LocalstorageApiService } from '../../services/localstorage-api.service';
@@ -12,7 +13,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 @Component({
   selector: 'app-edit-mode',
   standalone: true,
-  imports: [TitleComponent, ReactiveFormsModule, NgxMaskDirective, NgxMaskPipe],
+  imports: [CommonModule, TitleComponent, ReactiveFormsModule, NgxMaskDirective, NgxMaskPipe],
   templateUrl: './edit-mode.component.html',
   styleUrl: './edit-mode.component.sass',
   providers: [provideNgxMask()]

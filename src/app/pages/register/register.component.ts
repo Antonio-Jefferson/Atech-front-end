@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MainLayoutComponent } from '../../layout/main-layout/main-layout.component';
@@ -10,7 +11,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MainLayoutComponent, ReactiveFormsModule, TitleComponent, NgxMaskDirective, NgxMaskPipe],
+  imports: [CommonModule, MainLayoutComponent, ReactiveFormsModule, TitleComponent, NgxMaskDirective, NgxMaskPipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.sass',
   providers: [provideNgxMask()]
@@ -21,9 +22,18 @@ export class RegisterComponent  implements OnInit {
   constructor(private fb: FormBuilder, private localStorageService: LocalstorageApiService,
     private router: Router,private notification: NotificationService) {
     this.formulario = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.minLength(11), Validators.maxLength(11)]]
+      name: ['', {
+        validators: Validators.required,
+        message: 'Nome é obrigatório.'
+      }],
+      email: ['', {
+        validators: [Validators.required, Validators.email],
+        message: 'Email inválido.'
+      }],
+      phone: ['', {
+        validators: [Validators.minLength(11), Validators.maxLength(11)],
+        message: 'Telefone deve ter exatamente 11 caracteres.'
+      }]
     });
   }
 
@@ -40,13 +50,6 @@ export class RegisterComponent  implements OnInit {
           this.notification.showError('Ocorreu um erro ao salvar')
         }
       );
-    }  else {
-      const phoneControl = this.formulario.get('phone');
-      if (phoneControl && (phoneControl.errors?.['minlength'] || phoneControl.errors?.['maxlength'])) {
-        this.notification.showError('Número inválido, precisa ter exatamente 11 números.');
-      } else {
-        this.notification.showError('Preencha todos os campos corretamente.');
-      }
     }
   }
 }
