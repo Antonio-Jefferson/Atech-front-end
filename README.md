@@ -4,13 +4,29 @@
 
 Este é um projeto incrível que foi desenvolvido como parte de uma avaliação técnica para o cargo de Desenvolvedor Frontend.
 
-- Fimga: [Clique aqui](https://www.figma.com/design/nyq5l1v7w0gPDXaCH76DsY/Untitled?node-id=0-1&t=YiTQwUdOVtDaphEb-1)
+## Design no Figma
 
-## Requisitos  ✅
+- [Figma](https://www.figma.com/design/nyq5l1v7w0gPDXaCH76DsY/Untitled?node-id=0-1&t=yGXa8f6kNAUTp53k-1)
+  
+## Tecnologias Usadas
+
+- **Angular**: Framework para construção de aplicações web.
+- **Angular Material**: Biblioteca de componentes de UI baseada no Material Design.
+- **RxJS**: Biblioteca para programação reativa.
+- **ngx-mask**: Biblioteca para criação de máscaras de entrada de dados.
+- **Toastify**: Biblioteca para notificações toast.
+- **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática.
+- **Jasmine**: Framework de testes para JavaScript.
+- **Karma**: Executor de testes para JavaScript.
+- **Zone.js**: Biblioteca que facilita a detecção de mudanças no Angular.
+
+# Quer testar o projetos então vem comigo
+
+## 1. Requisitos  ✅
 
 Certifique-se de ter o Node.js e o npm instalados em sua máquina antes de começar.
 
-## Instalação ⚙️
+## 2. Instalação ⚙️
 
 1. Clone este repositório para o seu computador: `git clone` [github.com/atech-front-end](git@github.com:Antonio-Jefferson/Atech-front-end.git)
 
@@ -18,7 +34,7 @@ Certifique-se de ter o Node.js e o npm instalados em sua máquina antes de come�
 
 3. Instale as dependências do projeto: `npm install`
 
-## Executando o Projeto 💻
+## 3. Executando o Projeto 💻
 
 Após a instalação das dependências, você pode iniciar o servidor de desenvolvimento local. Execute o seguinte comando:
 
@@ -78,23 +94,15 @@ Isso executará os testes e exibirá os resultados no terminal.
 
 ## Imagens do Projeto
 
-  <div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/home.png" alt="Home Page" width="45%" />
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-delete.png" alt="Modal Delete" width="45%" />
-</div>
 
-<img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/register.png" alt="Register Page" width="100%" />
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/register.png" alt="Register Page" width="100%" />
 
-<div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/user-details.png" alt="User Details" width="45%" />
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-edit.png" alt="Modal Edit" width="45%" />
-</div>
 
-<img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/footer.png" alt="Footer" width="100%" />
-
-## Design no Figma
-
-- [Figma](https://www.figma.com/design/nyq5l1v7w0gPDXaCH76DsY/Untitled?node-id=0-1&t=yGXa8f6kNAUTp53k-1)
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/footer.png" alt="Footer" width="100%" />
 
 ## Licença
 
