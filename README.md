@@ -20,7 +20,7 @@ Este é um projeto incrível que foi desenvolvido como parte de uma avaliação 
 - **Karma**: Executor de testes para JavaScript.
 - **Zone.js**: Biblioteca que facilita a detecção de mudanças no Angular.
 
-# Quer testar o projetos então vem comigo
+# Quer testar o projeto então vem comigo
 
 ## 1. Requisitos  ✅
 
