@@ -94,13 +94,13 @@ Isso executará os testes e exibirá os resultados no terminal.
 
 ## Imagens do Projeto
 
-  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/home.png" alt="Home Page" width="45%" />
-  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-delete.png" alt="Modal Delete" width="45%" />
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/home.png" alt="Home Page" width="100%" />
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-delete.png" alt="Modal Delete" width="100%" />
 
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/register.png" alt="Register Page" width="100%" />
 
-  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/user-details.png" alt="User Details" width="45%" />
-  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-edit.png" alt="Modal Edit" width="45%" />
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/user-details.png" alt="User Details" width="100%" />
+  <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/modal-edit.png" alt="Modal Edit" width="100%" />
 
   <img src="https://github.com/Antonio-Jefferson/Atech-front-end/blob/main/src/assets/images/footer.png" alt="Footer" width="100%" />
 

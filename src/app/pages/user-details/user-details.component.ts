@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Person } from '../../model/person.model';
 import { ActivatedRoute } from '@angular/router';
 import { LocalstorageApiService } from '../../services/localstorage-api.service';
@@ -16,7 +17,14 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [MainLayoutComponent, TitleComponent, MatIconModule],
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.sass'
+  styleUrl: './user-details.component.sass',
+  animations: [
+    trigger('if', [
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('false <=> true', [animate('0.3s')])
+    ])
+  ]
 })
 export class UserDetailsComponent {
   userId!: number;
