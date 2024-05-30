@@ -52,7 +52,7 @@ Para executar os testes unitários, você pode usar o seguinte comando:
   npm test
 ```
 
-Isso executará os testes e exibirá os resultados no terminal.
+Isso executará os testes e exibirá os resultados no Karma.
 
 ## Estrutura de Diretórios
 
